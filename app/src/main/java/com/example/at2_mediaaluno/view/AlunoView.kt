@@ -12,6 +12,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.at2_mediaaluno.controller.AlunoController
+import com.example.at2_mediaaluno.controller.filterTextToNumber
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -55,14 +56,16 @@ fun AlunoView(controller: AlunoController) {
         // Campo TP1
         OutlinedTextField(
             value = tp1Text,
-            onValueChange = {
-                tp1Text = it
-                it.toDoubleOrNull()?.let { nota ->
+            onValueChange = { novoTexto ->
+                val textoFiltrado = filterTextToNumber(novoTexto)
+                tp1Text = textoFiltrado
+                textoFiltrado.toDoubleOrNull()?.let { nota ->
                     if (nota in 0.0..10.0) {
                         controller.atualizarNota(0, nota)
                     }
                 }
             },
+
             label = { Text("TP1") },
             modifier = Modifier.fillMaxWidth(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
@@ -72,9 +75,10 @@ fun AlunoView(controller: AlunoController) {
         // Campo TP2
         OutlinedTextField(
             value = tp2Text,
-            onValueChange = {
-                tp2Text = it
-                it.toDoubleOrNull()?.let { nota ->
+            onValueChange = { novoTexto ->
+                val textoFiltrado = filterTextToNumber(novoTexto)
+                tp2Text = textoFiltrado
+                textoFiltrado.toDoubleOrNull()?.let { nota ->
                     if (nota in 0.0..10.0) {
                         controller.atualizarNota(1, nota)
                     }
@@ -89,11 +93,12 @@ fun AlunoView(controller: AlunoController) {
         // Campo TP3
         OutlinedTextField(
             value = tp3Text,
-            onValueChange = {
-                tp3Text = it
-                it.toDoubleOrNull()?.let { nota ->
+            onValueChange = { novoTexto ->
+                val textoFiltrado = filterTextToNumber(novoTexto)
+                tp3Text = textoFiltrado
+                textoFiltrado.toDoubleOrNull()?.let { nota ->
                     if (nota in 0.0..10.0) {
-                        controller.atualizarNota(2, nota)
+                        controller.atualizarNota(0, nota)
                     }
                 }
             },
