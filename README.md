@@ -2,7 +2,7 @@
 
 Projeto para atividade avaliativa: aplicação Android em Kotlin usando POO e Jetpack Compose para gerenciar notas de um aluno.
 
-Aluno: Daniel Mandira  
+Aluno: Daniel Augusto Mandira  
 Data de conclusão: 17 de novembro de 2025 — 18:30
 
 ## Instruções
